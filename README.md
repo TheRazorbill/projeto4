@@ -2,6 +2,8 @@
 
 Protótipo frontend de um SGPD com aparência enterprise SaaS, em HTML/CSS/JS puro.
 
+Link do projeto: https://therazorbill.github.io/projeto4/
+
 ## Como usar
 
 Abra `index.html` em um navegador moderno.
