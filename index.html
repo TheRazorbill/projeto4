@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SGPD | Sistema de Gestão de Processos Digitais</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand__mark">S</div>
+          <div>
+            <strong>SGPD</strong>
+            <span>Processos Digitais</span>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Navegação principal">
+          <button class="menu__item is-active" data-view="dashboard">
+            <span class="menu__icon">⌂</span>
+            <span>Início</span>
+          </button>
+          <button class="menu__item" data-view="requests">
+            <span class="menu__icon">↗</span>
+            <span>Minhas Solicitações</span>
+          </button>
+          <button class="menu__item" data-view="triage">
+            <span class="menu__icon">▤</span>
+            <span>Triagem (Gestor)</span>
+          </button>
+          <button class="menu__item" data-view="team">
+            <span class="menu__icon">◫</span>
+            <span>Equipe</span>
+          </button>
+          <button class="menu__item" data-view="settings">
+            <span class="menu__icon">⚙</span>
+            <span>Configurações</span>
+          </button>
+        </nav>
+
+        <div class="sidebar__footer">
+          <p>Ambiente corporativo</p>
+          <span>Versão 1.0</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="header">
+          <div>
+            <p class="eyebrow">Painel operacional</p>
+            <h1 id="pageTitle">Dashboard Principal</h1>
+          </div>
+
+          <div class="header__actions">
+            <label class="search">
+              <span>⌕</span>
+              <input type="search" placeholder="Buscar solicitações, equipes ou processos" />
+            </label>
+            <button class="icon-btn" aria-label="Notificações">🔔</button>
+            <button class="avatar" aria-label="Perfil do usuário">AM</button>
+          </div>
+        </header>
+
+        <section id="view-dashboard" class="view is-visible">
+          <div class="hero-card">
+            <div>
+              <p class="eyebrow">Visão geral</p>
+              <h2>Organize solicitações, acompanhe execução e acelere a triagem.</h2>
+              <p>Uma interface limpa para equipes corporativas acompanharem demandas, SLA e distribuição de trabalho.</p>
+            </div>
+            <button class="primary-btn" data-action="open-form">Nova Solicitação</button>
+          </div>
+
+          <div class="metrics">
+            <article class="metric-card">
+              <span>Pendentes</span>
+              <strong>18</strong>
+              <small>7% acima da média</small>
+            </article>
+            <article class="metric-card">
+              <span>Em Execução</span>
+              <strong>26</strong>
+              <small>Equipe ativa agora</small>
+            </article>
+            <article class="metric-card">
+              <span>Aguardando Ajustes</span>
+              <strong>09</strong>
+              <small>Itens em retorno</small>
+            </article>
+            <article class="metric-card">
+              <span>Concluídos</span>
+              <strong>42</strong>
+              <small>Hoje</small>
+            </article>
+          </div>
+
+          <section class="panel">
+            <div class="panel__head">
+              <div>
+                <p class="eyebrow">Atividades recentes</p>
+                <h3>Últimas movimentações</h3>
+              </div>
+              <button class="secondary-btn" data-view-link="triage">Ir para triagem</button>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Processo</th>
+                    <th>Status</th>
+                    <th>Responsável</th>
+                    <th>Atualização</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Solicitação #1042</td>
+                    <td><span class="pill pill--blue">Em execução</span></td>
+                    <td>Ana Martins</td>
+                    <td>Há 12 min</td>
+                  </tr>
+                  <tr>
+                    <td>Solicitação #1038</td>
+                    <td><span class="pill pill--yellow">Aguardando ajustes</span></td>
+                    <td>Rafael Costa</td>
+                    <td>Há 28 min</td>
+                  </tr>
+                  <tr>
+                    <td>Solicitação #1031</td>
+                    <td><span class="pill pill--green">Concluído</span></td>
+                    <td>Equipe Financeira</td>
+                    <td>Hoje, 09:15</td>
+                  </tr>
+                  <tr>
+                    <td>Solicitação #1026</td>
+                    <td><span class="pill pill--gray">Pendente</span></td>
+                    <td>Triagem</td>
+                    <td>Hoje, 08:04</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </section>
+
+        <section id="view-requests" class="view">
+          <div class="panel">
+            <div class="panel__head">
+              <div>
+                <p class="eyebrow">Abrir solicitação</p>
+                <h3>Formulário de criação de processos</h3>
+              </div>
+              <button class="secondary-btn" data-view-link="dashboard">Voltar ao dashboard</button>
+            </div>
+
+            <form class="form-grid">
+              <label>
+                <span>Título da demanda</span>
+                <input type="text" placeholder="Ex: Solicitar aprovação de contrato" />
+              </label>
+
+              <label>
+                <span>Categoria</span>
+                <select>
+                  <option>Financeiro</option>
+                  <option>Jurídico</option>
+                  <option>Operações</option>
+                  <option>TI</option>
+                </select>
+              </label>
+
+              <label>
+                <span>Prioridade</span>
+                <select>
+                  <option>Baixa</option>
+                  <option selected>Média</option>
+                  <option>Alta</option>
+                </select>
+              </label>
+
+              <label class="form-grid__full">
+                <span>Descrição</span>
+                <textarea rows="6" placeholder="Descreva o contexto, objetivo e informações necessárias."></textarea>
+              </label>
+
+              <div class="upload form-grid__full">
+                <div>
+                  <strong>Upload de arquivos</strong>
+                  <p>Arraste e solte anexos ou selecione arquivos do computador.</p>
+                </div>
+                <button type="button" class="secondary-btn">Selecionar arquivos</button>
+              </div>
+
+              <div class="actions form-grid__full">
+                <button type="button" class="ghost-btn" data-view-link="dashboard">Cancelar</button>
+                <button type="button" class="secondary-btn">Salvar rascunho</button>
+                <button type="button" class="primary-btn" data-action="success">Enviar solicitação</button>
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section id="view-triage" class="view">
+          <div class="panel">
+            <div class="panel__head">
+              <div>
+                <p class="eyebrow">Triagem e delegação</p>
+                <h3>Painel do gestor</h3>
+              </div>
+              <div class="filters">
+                <input type="date" />
+                <select>
+                  <option>Alta prioridade</option>
+                  <option>Média prioridade</option>
+                  <option>Baixa prioridade</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Demanda</th>
+                    <th>Categoria</th>
+                    <th>Prioridade</th>
+                    <th>Prazo</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Revisão de contrato</td>
+                    <td>Jurídico</td>
+                    <td><span class="pill pill--red">Alta</span></td>
+                    <td>Hoje</td>
+                    <td><button class="secondary-btn delegate-btn">Delegar</button></td>
+                  </tr>
+                  <tr>
+                    <td>Atualização cadastral</td>
+                    <td>Operações</td>
+                    <td><span class="pill pill--yellow">Média</span></td>
+                    <td>Amanhã</td>
+                    <td><button class="secondary-btn delegate-btn">Delegar</button></td>
+                  </tr>
+                  <tr>
+                    <td>Correção de acesso</td>
+                    <td>TI</td>
+                    <td><span class="pill pill--gray">Baixa</span></td>
+                    <td>2 dias</td>
+                    <td><button class="secondary-btn delegate-btn">Delegar</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="delegate-panel">
+              <div>
+                <p class="eyebrow">Seleção de executor</p>
+                <h4>Escolha um técnico com menor carga</h4>
+              </div>
+              <select>
+                <option>Ana Martins — 2/5 tarefas</option>
+                <option>Bruno Silva — 4/5 tarefas</option>
+                <option>Carla Souza — 1/5 tarefas</option>
+                <option>Diego Rocha — 3/5 tarefas</option>
+              </select>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-team" class="view">
+          <div class="panel compact-center">
+            <p class="eyebrow">Equipe</p>
+            <h3>Visão de capacidade operacional</h3>
+            <p>Área reservada para indicadores de alocação, status por célula e produtividade.</p>
+          </div>
+        </section>
+
+        <section id="view-settings" class="view">
+          <div class="panel compact-center">
+            <p class="eyebrow">Configurações</p>
+            <h3>Ajustes gerais do sistema</h3>
+            <p>Preferências de usuário, temas, notificações e parâmetros de workflow.</p>
+          </div>
+        </section>
+
+        <section id="successState" class="success-state" aria-live="polite">
+          <div>
+            <p class="eyebrow">Solicitação enviada</p>
+            <h3>Seu processo foi registrado com sucesso.</h3>
+            <p>A solicitação agora está disponível para triagem e acompanhamento.</p>
+          </div>
+          <button class="primary-btn" data-view-link="dashboard">Voltar ao dashboard</button>
+        </section>
+      </main>
+    </div>
+
+    <dialog id="delegateModal" class="modal">
+      <form method="dialog" class="modal__card">
+        <div class="modal__head">
+          <div>
+            <p class="eyebrow">Delegação</p>
+            <h3>Atribuir demanda ao executor</h3>
+          </div>
+          <button class="icon-btn" value="cancel" aria-label="Fechar">✕</button>
+        </div>
+        <p>Selecione um técnico e confirme a distribuição da tarefa.</p>
+        <select>
+          <option>Ana Martins — 2/5 tarefas</option>
+          <option>Bruno Silva — 4/5 tarefas</option>
+          <option>Carla Souza — 1/5 tarefas</option>
+          <option>Diego Rocha — 3/5 tarefas</option>
+        </select>
+        <div class="actions">
+          <button class="ghost-btn" value="cancel">Cancelar</button>
+          <button class="primary-btn" value="default">Confirmar delegação</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
